@@ -14,7 +14,18 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::group(['prefix'=>'tasks'], function(){
+    Route::get('/', function(){
+        $tasks = \App\Task::all();//collection
+        return view('tasks.index', ['tasks' => $tasks]);
+    });
     
-Route::get('/home', function(){
-    return view('articles.index');
+    Route::post('/', function(){
+    
+    });
+    
+    Route::delete('/{task}', function(){
+    
+    });
 });
